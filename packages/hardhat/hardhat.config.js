@@ -24,7 +24,7 @@ const { isAddress, getAddress, formatUnits, parseUnits } = utils;
 //
 // Select the network you want to deploy to here:
 //
-const defaultNetwork = "localhost";
+const defaultNetwork = "buildbear";
 
 function mnemonic() {
   try {
@@ -58,221 +58,226 @@ module.exports = {
   // DON'T PUSH THESE HERE!!!
   // An `example.env` has been provided in the Hardhat root. Copy it and rename it `.env`
   // Follow the directions, and uncomment the network you wish to deploy to.
-
   networks: {
-    localhost: {
-      url: "http://127.0.0.1:8545/",
-      /*
-        notice no mnemonic here? it will just use account 0 of the hardhat node to deploy
-        (you can put in a mnemonic here to set the deployer locally)
+      // localhost: {
+    //   url: "http://127.0.0.1:8545/",
+    //   /*
+    //     notice no mnemonic here? it will just use account 0 of the hardhat node to deploy
+    //     (you can put in a mnemonic here to set the deployer locally)
 
-      */
+    //   */
+    // },
+    buildbear: {
+      url: "https://rpc.demo.buildbear.io/Superior_Ric_Olie_8f0d35f0", // <---- YOUR INFURA ID! (or it won't work)
+      // accounts: [
+      //   "",
+      // ],
     },
-    mainnet: {
-      url: "https://mainnet.infura.io/v3/460f40a260564ac4a4f4b3fffb032dad", // <---- YOUR INFURA ID! (or it won't work)
-      accounts: {
-        mnemonic: mnemonic(),
-      },
-    },
-    optimism: {
-      url: "https://mainnet.optimism.io",
-      accounts: {
-        mnemonic: mnemonic(),
-      },
-      companionNetworks: {
-        l1: "mainnet",
-      },
-    },
-    gnosis: {
-      url: "https://rpc.gnosischain.com/",
-      gasPrice: 1000000000,
-      accounts: {
-        mnemonic: mnemonic(),
-      },
-    },
-    polygon: {
-      url: "https://polygon-rpc.com",
-      accounts: {
-        mnemonic: mnemonic(),
-      },
-    },
-    goerli: {
-      url: "https://goerli.infura.io/v3/460f40a260564ac4a4f4b3fffb032dad", // <---- YOUR INFURA ID! (or it won't work)
-      accounts: {
-        mnemonic: mnemonic(),
-      },
-    },
-    sepolia: {
-      url: "https://rpc.sepolia.org",
-      // "https://sepolia.infura.io/v3/INFURA_ID",
-      accounts: {
-        mnemonic: mnemonic(),
-      },
-    },
-    zksyncalpha: {
-      url: "https://zksync2-testnet.zksync.dev",
-      gasPrice: 100000000,
-      accounts: {
-        mnemonic: mnemonic(),
-      },
-    },
-    chiado: {
-      url: "https://rpc.chiadochain.net",
-      gasPrice: 1000000000,
-      accounts: {
-        mnemonic: mnemonic(),
-      },
-    },
-    fantom: {
-      url: "https://rpcapi.fantom.network",
-      gasPrice: 1000000000,
-      accounts: {
-        mnemonic: mnemonic(),
-      },
-    },
-    testnetFantom: {
-      url: "https://rpc.testnet.fantom.network",
-      gasPrice: 1000000000,
-      accounts: {
-        mnemonic: mnemonic(),
-      },
-    },
-    mumbai: {
-      url: "https://rpc-mumbai.maticvigil.com",
-      accounts: {
-        mnemonic: mnemonic(),
-      },
-    },
-    matic: {
-      url: "https://rpc-mainnet.maticvigil.com/",
-      accounts: {
-        mnemonic: mnemonic(),
-      },
-    },
-    goerliOptimism: {
-      url: "https://goerli.optimism.io/",
-      accounts: {
-        mnemonic: mnemonic(),
-      },
-      companionNetworks: {
-        l1: "goerli",
-      },
-    },
-    localOptimism: {
-      url: "http://localhost:8545",
-      accounts: {
-        mnemonic: mnemonic(),
-      },
-      companionNetworks: {
-        l1: "localOptimismL1",
-      },
-    },
-    localOptimismL1: {
-      url: "http://localhost:9545",
-      gasPrice: 0,
-      accounts: {
-        mnemonic: mnemonic(),
-      },
-      companionNetworks: {
-        l2: "localOptimism",
-      },
-    },
-    localAvalanche: {
-      url: "http://localhost:9650/ext/bc/C/rpc",
-      gasPrice: 225000000000,
-      chainId: 43112,
-      accounts: {
-        mnemonic: mnemonic(),
-      },
-    },
-    fujiAvalanche: {
-      url: "https://api.avax-test.network/ext/bc/C/rpc",
-      gasPrice: 225000000000,
-      chainId: 43113,
-      accounts: {
-        mnemonic: mnemonic(),
-      },
-    },
-    mainnetAvalanche: {
-      url: "https://api.avax.network/ext/bc/C/rpc",
-      gasPrice: 225000000000,
-      chainId: 43114,
-      accounts: {
-        mnemonic: mnemonic(),
-      },
-    },
-    testnetHarmony: {
-      url: "https://api.s0.b.hmny.io",
-      gasPrice: 1000000000,
-      chainId: 1666700000,
-      accounts: {
-        mnemonic: mnemonic(),
-      },
-    },
-    mainnetHarmony: {
-      url: "https://api.harmony.one",
-      gasPrice: 1000000000,
-      chainId: 1666600000,
-      accounts: {
-        mnemonic: mnemonic(),
-      },
-    },
-    moonbeam: {
-      url: "https://rpc.api.moonbeam.network",
-      chainId: 1284,
-      accounts: {
-        mnemonic: mnemonic(),
-      },
-    },
-    moonriver: {
-      url: "https://rpc.api.moonriver.moonbeam.network",
-      chainId: 1285,
-      accounts: {
-        mnemonic: mnemonic(),
-      },
-    },
-    moonbaseAlpha: {
-      url: "https://rpc.api.moonbase.moonbeam.network",
-      chainId: 1287,
-      accounts: {
-        mnemonic: mnemonic(),
-      },
-    },
-    moonbeamDevNode: {
-      url: "http://127.0.0.1:9933",
-      chainId: 1281,
-      accounts: {
-        mnemonic: mnemonic(),
-      },
-    },
-    godwoken: {
-      url: "https://godwoken-testnet-v1.ckbapp.dev",
-      chainId: 71401,
-      accounts: {
-        mnemonic: mnemonic(),
-      },
-    },
-    arbitrum: {
-      url: "https://arb1.arbitrum.io/rpc",
-      chainId: 42161,
-      accounts: {
-        mnemonic: mnemonic(),
-      },
-    },
-    goerliArbitrum: {
-      url: "https://goerli-rollup.arbitrum.io/rpc/",
-      chainId: 421613,
-      accounts: {
-        mnemonic: mnemonic(),
-      },
-    },
-    devnetArbitrum: {
-      url: "https://nitro-devnet.arbitrum.io/rpc",
-      chainId: 421612,
-      accounts: {
-        mnemonic: mnemonic(),
-      },
-    },
+    // mainnet: {
+    //   url: "https://mainnet.infura.io/v3/460f40a260564ac4a4f4b3fffb032dad", // <---- YOUR INFURA ID! (or it won't work)
+    //   accounts: {
+    //     mnemonic: mnemonic(),
+    //   },
+    // },
+    // optimism: {
+    //   url: "https://mainnet.optimism.io",
+    //   accounts: {
+    //     mnemonic: mnemonic(),
+    //   },
+    //   companionNetworks: {
+    //     l1: "mainnet",
+    //   },
+    // },
+    // gnosis: {
+    //   url: "https://rpc.gnosischain.com/",
+    //   gasPrice: 1000000000,
+    //   accounts: {
+    //     mnemonic: mnemonic(),
+    //   },
+    // },
+    // polygon: {
+    //   url: "https://polygon-rpc.com",
+    //   accounts: {
+    //     mnemonic: mnemonic(),
+    //   },
+    // },
+    // goerli: {
+    //   url: "https://goerli.infura.io/v3/460f40a260564ac4a4f4b3fffb032dad", // <---- YOUR INFURA ID! (or it won't work)
+    //   accounts: {
+    //     mnemonic: mnemonic(),
+    //   },
+    // },
+    // sepolia: {
+    //   url: "https://rpc.sepolia.org",
+    //   // "https://sepolia.infura.io/v3/INFURA_ID",
+    //   accounts: {
+    //     mnemonic: mnemonic(),
+    //   },
+    // },
+    // zksyncalpha: {
+    //   url: "https://zksync2-testnet.zksync.dev",
+    //   gasPrice: 100000000,
+    //   accounts: {
+    //     mnemonic: mnemonic(),
+    //   },
+    // },
+    // chiado: {
+    //   url: "https://rpc.chiadochain.net",
+    //   gasPrice: 1000000000,
+    //   accounts: {
+    //     mnemonic: mnemonic(),
+    //   },
+    // },
+    // fantom: {
+    //   url: "https://rpcapi.fantom.network",
+    //   gasPrice: 1000000000,
+    //   accounts: {
+    //     mnemonic: mnemonic(),
+    //   },
+    // },
+    // testnetFantom: {
+    //   url: "https://rpc.testnet.fantom.network",
+    //   gasPrice: 1000000000,
+    //   accounts: {
+    //     mnemonic: mnemonic(),
+    //   },
+    // },
+    // mumbai: {
+    //   url: "https://rpc-mumbai.maticvigil.com",
+    //   accounts: {
+    //     mnemonic: mnemonic(),
+    //   },
+    // },
+    // matic: {
+    //   url: "https://rpc-mainnet.maticvigil.com/",
+    //   accounts: {
+    //     mnemonic: mnemonic(),
+    //   },
+    // },
+    // goerliOptimism: {
+    //   url: "https://goerli.optimism.io/",
+    //   accounts: {
+    //     mnemonic: mnemonic(),
+    //   },
+    //   companionNetworks: {
+    //     l1: "goerli",
+    //   },
+    // },
+    // localOptimism: {
+    //   url: "http://localhost:8545",
+    //   accounts: {
+    //     mnemonic: mnemonic(),
+    //   },
+    //   companionNetworks: {
+    //     l1: "localOptimismL1",
+    //   },
+    // },
+    // localOptimismL1: {
+    //   url: "http://localhost:9545",
+    //   gasPrice: 0,
+    //   accounts: {
+    //     mnemonic: mnemonic(),
+    //   },
+    //   companionNetworks: {
+    //     l2: "localOptimism",
+    //   },
+    // },
+    // localAvalanche: {
+    //   url: "http://localhost:9650/ext/bc/C/rpc",
+    //   gasPrice: 225000000000,
+    //   chainId: 43112,
+    //   accounts: {
+    //     mnemonic: mnemonic(),
+    //   },
+    // },
+    // fujiAvalanche: {
+    //   url: "https://api.avax-test.network/ext/bc/C/rpc",
+    //   gasPrice: 225000000000,
+    //   chainId: 43113,
+    //   accounts: {
+    //     mnemonic: mnemonic(),
+    //   },
+    // },
+    // mainnetAvalanche: {
+    //   url: "https://api.avax.network/ext/bc/C/rpc",
+    //   gasPrice: 225000000000,
+    //   chainId: 43114,
+    //   accounts: {
+    //     mnemonic: mnemonic(),
+    //   },
+    // },
+    // testnetHarmony: {
+    //   url: "https://api.s0.b.hmny.io",
+    //   gasPrice: 1000000000,
+    //   chainId: 1666700000,
+    //   accounts: {
+    //     mnemonic: mnemonic(),
+    //   },
+    // },
+    // mainnetHarmony: {
+    //   url: "https://api.harmony.one",
+    //   gasPrice: 1000000000,
+    //   chainId: 1666600000,
+    //   accounts: {
+    //     mnemonic: mnemonic(),
+    //   },
+    // },
+    // moonbeam: {
+    //   url: "https://rpc.api.moonbeam.network",
+    //   chainId: 1284,
+    //   accounts: {
+    //     mnemonic: mnemonic(),
+    //   },
+    // },
+    // moonriver: {
+    //   url: "https://rpc.api.moonriver.moonbeam.network",
+    //   chainId: 1285,
+    //   accounts: {
+    //     mnemonic: mnemonic(),
+    //   },
+    // },
+    // moonbaseAlpha: {
+    //   url: "https://rpc.api.moonbase.moonbeam.network",
+    //   chainId: 1287,
+    //   accounts: {
+    //     mnemonic: mnemonic(),
+    //   },
+    // },
+    // moonbeamDevNode: {
+    //   url: "http://127.0.0.1:9933",
+    //   chainId: 1281,
+    //   accounts: {
+    //     mnemonic: mnemonic(),
+    //   },
+    // },
+    // godwoken: {
+    //   url: "https://godwoken-testnet-v1.ckbapp.dev",
+    //   chainId: 71401,
+    //   accounts: {
+    //     mnemonic: mnemonic(),
+    //   },
+    // },
+    // arbitrum: {
+    //   url: "https://arb1.arbitrum.io/rpc",
+    //   chainId: 42161,
+    //   accounts: {
+    //     mnemonic: mnemonic(),
+    //   },
+    // },
+    // goerliArbitrum: {
+    //   url: "https://goerli-rollup.arbitrum.io/rpc/",
+    //   chainId: 421613,
+    //   accounts: {
+    //     mnemonic: mnemonic(),
+    //   },
+    // },
+    // devnetArbitrum: {
+    //   url: "https://nitro-devnet.arbitrum.io/rpc",
+    //   chainId: 421612,
+    //   accounts: {
+    //     mnemonic: mnemonic(),
+    //   },
+    // },
   },
   solidity: {
     compilers: [

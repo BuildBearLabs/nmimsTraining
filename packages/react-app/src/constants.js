@@ -25,6 +25,13 @@ const localRpcUrl = process.env.REACT_APP_CODESPACES
   : "http://" + (global.window ? window.location.hostname : "localhost") + ":8545";
 
 export const NETWORKS = {
+  buildbear: {
+    name: "buildbear",
+    color: "#666666",
+    // chainId: 31337,
+    // blockExplorer: "",
+    rpcUrl: "https://rpc.buildbear.io/Superior_Ric_Olie_8f0d35f0", //TODO
+  },
   localhost: {
     name: "localhost",
     color: "#666666",
